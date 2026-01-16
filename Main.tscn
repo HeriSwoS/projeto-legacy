@@ -1,0 +1,21 @@
+[gd_scene load_steps=11 format=3 uid="uid://dl5cabys42jhj"]
+
+[ext_resource type="Script" uid="uid://ce6fjseepnwi" path="res://CardManager.gd" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://gx7mtmlrmvlb" path="res://GameManager.gd" id="1_uu6xs"]
+[ext_resource type="Script" uid="uid://beibke0x0ddqw" path="res://CardData.gd" id="2_r0du0"]
+[ext_resource type="Resource" uid="uid://dmrdv6wcnxoju" path="res://Mago.tres" id="3_3dxm6"]
+[ext_resource type="Resource" uid="uid://cjitobexljbg2" path="res://Golem.tres" id="4_lgr22"]
+[ext_resource type="Resource" uid="uid://i3m7fdldlnr4" path="res://Guerreiro.tres" id="5_trn2v"]
+[ext_resource type="Resource" uid="uid://cogsy2pp2cw5c" path="res://Anjo.tres" id="6_wkp8b"]
+[ext_resource type="Resource" uid="uid://6sibl5a3uxbn" path="res://Barbaro.tres" id="7_20pc6"]
+[ext_resource type="Resource" uid="uid://y2ec50qwsnva" path="res://Clérigo.tres" id="8_5vvyt"]
+[ext_resource type="Resource" uid="uid://87kvuouprdxo" path="res://Paladino.tres" id="9_c6i3y"]
+
+[node name="Raiz" type="Node2D"]
+script = ExtResource("1_uu6xs")
+deck_data = Array[ExtResource("2_r0du0")]([ExtResource("3_3dxm6"), ExtResource("4_lgr22"), ExtResource("5_trn2v"), ExtResource("6_wkp8b"), ExtResource("7_20pc6"), ExtResource("8_5vvyt"), ExtResource("9_c6i3y")])
+
+[node name="Card Manager" type="Node2D" parent="."]
+script = ExtResource("1_glv2v")
+
+[node name="PlayerHand" type="Node2D" parent="."]

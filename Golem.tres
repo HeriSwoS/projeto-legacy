@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://cjitobexljbg2"]
+
+[ext_resource type="Texture2D" uid="uid://btxldi3i1ahku" path="res://golem (1).png" id="1_kwgqi"]
+[ext_resource type="Script" uid="uid://beibke0x0ddqw" path="res://CardData.gd" id="2_hwk2u"]
+
+[resource]
+script = ExtResource("2_hwk2u")
+card_name = "Golem"
+description = "Não se move"
+artwork = ExtResource("1_kwgqi")
+attack = 1
+health = 1
+metadata/_custom_type_script = "uid://beibke0x0ddqw"
+metadata/Golem = true
