@@ -2,7 +2,7 @@
 extends Node2D
 
 # Pré-carregue a cena da carta
-const CardScene = preload("res://card.tscn")
+const CardScene = preload("res://Scenes/Card.tscn")
 
 # Exporte um array para arrastar seus recursos de carta no inspetor
 @export var deck_data: Array[CardData]

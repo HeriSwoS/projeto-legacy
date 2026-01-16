@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqyna3jvggfug"
-path="res://.godot/imported/guerreiro (1).png-981f24ce8eb5f2c67061789f00e0c215.ctex"
+uid="uid://btxldi3i1ahku"
+path="res://.godot/imported/golem (1).png-c491000638d44dd67e2e94924228c85d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://guerreiro (1).png"
-dest_files=["res://.godot/imported/guerreiro (1).png-981f24ce8eb5f2c67061789f00e0c215.ctex"]
+source_file="res://Assents/golem (1).png"
+dest_files=["res://.godot/imported/golem (1).png-c491000638d44dd67e2e94924228c85d.ctex"]
 
 [params]
 

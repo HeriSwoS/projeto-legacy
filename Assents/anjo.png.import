@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://20liv0f1ihlp"
-path="res://.godot/imported/barbaro.png-437ab473462a9b3ab69084a0ce3bd404.ctex"
+uid="uid://bb7s653xedf3r"
+path="res://.godot/imported/anjo.png-cdd30ce6671e02f466eb61ca204761ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://barbaro.png"
-dest_files=["res://.godot/imported/barbaro.png-437ab473462a9b3ab69084a0ce3bd404.ctex"]
+source_file="res://Assents/anjo.png"
+dest_files=["res://.godot/imported/anjo.png-cdd30ce6671e02f466eb61ca204761ce.ctex"]
 
 [params]
 
