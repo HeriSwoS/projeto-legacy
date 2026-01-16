@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2y3uvl2klb2c"
-path="res://.godot/imported/clerigo.png-cd757288f71ec4d7e0edc95971dbdffa.ctex"
+uid="uid://20liv0f1ihlp"
+path="res://.godot/imported/barbaro.png-2570e59ffb264cd05300225793f457ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://clerigo.png"
-dest_files=["res://.godot/imported/clerigo.png-cd757288f71ec4d7e0edc95971dbdffa.ctex"]
+source_file="res://Assents/barbaro.png"
+dest_files=["res://.godot/imported/barbaro.png-2570e59ffb264cd05300225793f457ed.ctex"]
 
 [params]
 

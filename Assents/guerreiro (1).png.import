@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb7s653xedf3r"
-path="res://.godot/imported/anjo.png-e232212e14c149d892a00ae6fa484ec5.ctex"
+uid="uid://dqyna3jvggfug"
+path="res://.godot/imported/guerreiro (1).png-e37a5e0452b32654d65995832bd8e5a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://anjo.png"
-dest_files=["res://.godot/imported/anjo.png-e232212e14c149d892a00ae6fa484ec5.ctex"]
+source_file="res://Assents/guerreiro (1).png"
+dest_files=["res://.godot/imported/guerreiro (1).png-e37a5e0452b32654d65995832bd8e5a9.ctex"]
 
 [params]
 

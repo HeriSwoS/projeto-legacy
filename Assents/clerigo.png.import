@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btxldi3i1ahku"
-path="res://.godot/imported/golem (1).png-e49f253186d8912776c36edf82ef30a6.ctex"
+uid="uid://b2y3uvl2klb2c"
+path="res://.godot/imported/clerigo.png-6610fd14beb5ad281982993a01a32ab8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://golem (1).png"
-dest_files=["res://.godot/imported/golem (1).png-e49f253186d8912776c36edf82ef30a6.ctex"]
+source_file="res://Assents/clerigo.png"
+dest_files=["res://.godot/imported/clerigo.png-6610fd14beb5ad281982993a01a32ab8.ctex"]
 
 [params]
 
