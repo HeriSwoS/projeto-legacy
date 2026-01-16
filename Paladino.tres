@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://87kvuouprdxo"]
+
+[ext_resource type="Texture2D" uid="uid://cset54gito5gi" path="res://paladino.png" id="1_eio4w"]
+[ext_resource type="Script" uid="uid://beibke0x0ddqw" path="res://CardData.gd" id="2_jvtcx"]
+
+[resource]
+script = ExtResource("2_jvtcx")
+card_name = "Paladino"
+description = "Cura 2 de vida"
+cost = 2
+artwork = ExtResource("1_eio4w")
+attack = 2
+health = 2
+metadata/_custom_type_script = "uid://beibke0x0ddqw"
+metadata/Mago = true

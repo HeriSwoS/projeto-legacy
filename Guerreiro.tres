@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://i3m7fdldlnr4"]
+
+[ext_resource type="Texture2D" uid="uid://dqyna3jvggfug" path="res://guerreiro (1).png" id="1_wfs1s"]
+[ext_resource type="Script" uid="uid://beibke0x0ddqw" path="res://CardData.gd" id="2_04k31"]
+
+[resource]
+script = ExtResource("2_04k31")
+card_name = "Guerreiro"
+description = "tem 1 de escudo"
+cost = 2
+artwork = ExtResource("1_wfs1s")
+attack = 2
+health = 2
+metadata/_custom_type_script = "uid://beibke0x0ddqw"
+metadata/Guerreiro = false

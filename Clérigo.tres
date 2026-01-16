@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://y2ec50qwsnva"]
+
+[ext_resource type="Texture2D" uid="uid://b2y3uvl2klb2c" path="res://clerigo.png" id="1_3ko8h"]
+[ext_resource type="Script" uid="uid://beibke0x0ddqw" path="res://CardData.gd" id="2_2q80q"]
+
+[resource]
+script = ExtResource("2_2q80q")
+card_name = "Clérigo"
+description = "Cura 1 de vida"
+artwork = ExtResource("1_3ko8h")
+attack = 1
+health = 2
+metadata/_custom_type_script = "uid://beibke0x0ddqw"
+metadata/Mago = true

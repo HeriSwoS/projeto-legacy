@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://dmrdv6wcnxoju"]
+
+[ext_resource type="Texture2D" uid="uid://dgr3vyn6sdb1f" path="res://mago (1).png" id="1_2awww"]
+[ext_resource type="Script" uid="uid://beibke0x0ddqw" path="res://CardData.gd" id="1_qem7r"]
+
+[resource]
+script = ExtResource("1_qem7r")
+card_name = "Mago"
+description = "Causa 1 de dano"
+cost = 2
+artwork = ExtResource("1_2awww")
+attack = 3
+health = 1
+metadata/_custom_type_script = "uid://beibke0x0ddqw"
+metadata/Mago = true
