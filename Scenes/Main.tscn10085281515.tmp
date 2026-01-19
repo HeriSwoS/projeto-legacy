@@ -18,46 +18,43 @@ deck_data = Array[ExtResource("2_4kpch")]([ExtResource("3_grg3l"), ExtResource("
 
 [node name="PlayerHand" type="Node2D" parent="."]
 
-[node name="Card Manager" type="Node2D" parent="." node_paths=PackedStringArray("player_hand", "game_manager") groups=["zone"]]
+[node name="Card Manager" type="Node2D" parent="." node_paths=PackedStringArray("drop_zone", "player_hand", "game_manager")]
 script = ExtResource("10_0sclb")
+drop_zone = NodePath("../GridContainer/DropZone")
 player_hand = NodePath("../PlayerHand")
 game_manager = NodePath("..")
 
 [node name="GridContainer" type="GridContainer" parent="."]
-offset_left = 184.0
-offset_top = 80.0
-offset_right = 972.0
-offset_bottom = 381.0
-theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 20
-columns = 5
+offset_left = 140.0
+offset_right = 991.0
+offset_bottom = 393.0
 
 [node name="DropZone" parent="GridContainer" instance=ExtResource("11_4kpch")]
-layout_mode = 2
+position = Vector2(416, 310)
 
 [node name="DropZone2" parent="GridContainer" instance=ExtResource("11_4kpch")]
-layout_mode = 2
+position = Vector2(416, 310)
 
 [node name="DropZone3" parent="GridContainer" instance=ExtResource("11_4kpch")]
-layout_mode = 2
+position = Vector2(416, 310)
 
 [node name="DropZone4" parent="GridContainer" instance=ExtResource("11_4kpch")]
-layout_mode = 2
+position = Vector2(416, 310)
 
 [node name="DropZone5" parent="GridContainer" instance=ExtResource("11_4kpch")]
-layout_mode = 2
+position = Vector2(416, 310)
 
 [node name="DropZone6" parent="GridContainer" instance=ExtResource("11_4kpch")]
-layout_mode = 2
+position = Vector2(416, 310)
 
 [node name="DropZone7" parent="GridContainer" instance=ExtResource("11_4kpch")]
-layout_mode = 2
+position = Vector2(416, 310)
 
 [node name="DropZone8" parent="GridContainer" instance=ExtResource("11_4kpch")]
-layout_mode = 2
+position = Vector2(416, 310)
 
 [node name="DropZone9" parent="GridContainer" instance=ExtResource("11_4kpch")]
-layout_mode = 2
+position = Vector2(416, 310)
 
 [node name="DropZone10" parent="GridContainer" instance=ExtResource("11_4kpch")]
-layout_mode = 2
+position = Vector2(416, 310)

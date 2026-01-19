@@ -9,26 +9,29 @@ size = Vector2(128, 129)
 [node name="Card" type="Area2D"]
 script = ExtResource("1_3p273")
 
-[node name="Artwork" type="Sprite2D" parent="."]
-texture = ExtResource("2_h8wm0")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_u4fkt")
 
-[node name="NameLabel" type="Label" parent="."]
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Artwork" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+texture = ExtResource("2_h8wm0")
+
+[node name="NameLabel" type="Label" parent="Visuals"]
 offset_left = -59.0
 offset_top = -60.0
 offset_right = 7.0
 offset_bottom = -37.0
 
-[node name="CostLabel" type="Label" parent="."]
+[node name="CostLabel" type="Label" parent="Visuals"]
 offset_left = 17.0
 offset_top = -59.0
 offset_right = 57.0
 offset_bottom = -36.0
 
-[node name="DescriptionLabel" type="Label" parent="."]
+[node name="DescriptionLabel" type="Label" parent="Visuals"]
 offset_left = -51.0
 offset_top = 28.0
 offset_right = 54.0
