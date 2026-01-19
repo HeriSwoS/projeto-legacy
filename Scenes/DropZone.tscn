@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://jjtei8yvnn74"]
+
+[ext_resource type="Texture2D" uid="uid://bhr6gygm3hnr7" path="res://Assents/Area de ataque.png" id="1_wb5sp"]
+
+[node name="DropZone" type="Control" groups=["zone"]]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(70, 70)
+texture = ExtResource("1_wb5sp")
+
+[node name="PlayedCardsContainer" type="Node2D" parent="."]
+position = Vector2(71, 71)

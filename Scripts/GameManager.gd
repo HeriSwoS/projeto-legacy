@@ -47,9 +47,23 @@ func draw_card():
 		push_error("A cena instanciada não é do tipo 'Card'. Verifique o script anexado ao nó raiz de Card.tscn.")
 
 func update_hand_positions():
-	# Lógica para organizar as cartas na mão (ex: em um arco)
-	var hand_size = hand.size()
+	var hand_node = $PlayerHand
+	var cards = []
+	
+	# Pega apenas os filhos que são cartas
+	for child in hand_node.get_children():
+		if child.is_in_group("is_card"):
+			cards.append(child)
+	
+	var hand_size = cards.size()
+	var spacing = 150.0 # Espaço entre as cartas
+	
 	for i in range(hand_size):
-		var card = hand[i]
-		var target_x = (i - (hand_size - 1) / 2.0) * 150 # Espaçamento horizontal
-		card.position = Vector2(target_x, 0)
+		var card = cards[i]
+		# Calcula a posição X centralizada
+		var target_x = (i - (hand_size - 1) / 2.0) * spacing
+		var target_pos = Vector2(target_x, 0)
+		
+		# Usa um Tween para mover as cartas suavemente para seus novos lugares
+		var tween = create_tween()
+		tween.tween_property(card, "position", target_pos, 0.25).set_trans(Tween.TRANS_SINE)
