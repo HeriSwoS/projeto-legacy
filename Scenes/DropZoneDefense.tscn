@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmr3l8iqhkckg"]
+
+[ext_resource type="PackedScene" uid="uid://jjtei8yvnn74" path="res://Scenes/DropZoneAttack.tscn" id="1_4j2qf"]
+[ext_resource type="Texture2D" uid="uid://t6d1pj0epv48" path="res://Assents/Area de Defesa.png" id="2_bhvqe"]
+
+[node name="DropZoneDefense" instance=ExtResource("1_4j2qf")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_bhvqe")

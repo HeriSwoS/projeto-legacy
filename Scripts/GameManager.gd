@@ -29,11 +29,10 @@ func _ready():
 func draw_card():
 	if deck_data.is_empty():
 		print("Baralho vazio!")
+		update_deck_visual()
 		return
 
 	var data = deck_data.pop_front()
-
-	# Adicione "as Card" para garantir o tipo correto
 	var new_card = CardScene.instantiate() as Card
 
 	# Verifique se a instância é válida antes de chamar a função
@@ -42,28 +41,25 @@ func draw_card():
 		hand.append(new_card)
 		player_hand_node.add_child(new_card)
 		update_hand_positions()
+		update_deck_visual()
 	else:
 		# Se new_card for nulo, significa que o nó raiz de CardScene.tscn não é um "Card"
-		push_error("A cena instanciada não é do tipo 'Card'. Verifique o script anexado ao nó raiz de Card.tscn.")
-
+		push_error("Erro ao instanciar carta.")
+		
+func update_deck_visual():
+	var deck_node = get_tree().get_first_node_in_group("deck")
+	if deck_node and deck_node.has_method("update_count"):
+		deck_node.update_count(deck_data.size())
+		
 func update_hand_positions():
 	var hand_node = $PlayerHand
 	var cards = []
-	
-	# Pega apenas os filhos que são cartas
 	for child in hand_node.get_children():
-		if child.is_in_group("is_card"):
+		# Só organiza cartas que NÃO estão sendo arrastadas (top_level = false)
+		if child.is_in_group("is_card") and not child.top_level:
 			cards.append(child)
 	
-	var hand_size = cards.size()
-	var spacing = 150.0 # Espaço entre as cartas
-	
-	for i in range(hand_size):
-		var card = cards[i]
-		# Calcula a posição X centralizada
-		var target_x = (i - (hand_size - 1) / 2.0) * spacing
-		var target_pos = Vector2(target_x, 0)
-		
-		# Usa um Tween para mover as cartas suavemente para seus novos lugares
-		var tween = create_tween()
-		tween.tween_property(card, "position", target_pos, 0.25).set_trans(Tween.TRANS_SINE)
+	var spacing = 150.0
+	for i in range(cards.size()):
+		var target_x = (i - (cards.size() - 1) / 2.0) * spacing
+		create_tween().tween_property(cards[i], "position", Vector2(target_x, 0), 0.25).set_trans(Tween.TRANS_SINE)
