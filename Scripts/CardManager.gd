@@ -2,6 +2,7 @@ extends Node2D
 
 var card_being_dragged = null
 var is_dragging = false
+var original_parent = null  # Armazena o pai original da carta
 
 func _process(_delta):
 	if is_dragging and card_being_dragged:
@@ -14,9 +15,16 @@ func _unhandled_input(event):
 			if card:
 				card_being_dragged = card
 				is_dragging = true
+				original_parent = card_being_dragged.get_parent()  # Armazena o pai original
 				card_being_dragged.z_index = 100
-				card_being_dragged.top_level = true
+				
+				# NÃO fazer top_level = true se estiver no cemitério
+				# Isso evita que a carta desapareça
+				if not original_parent.is_in_group("graveyard"):
+					card_being_dragged.top_level = true
+				
 				print("Iniciando arrasto de: ", card_being_dragged.card_data.card_name)
+				print("Pai original: ", original_parent.name)
 		elif is_dragging and card_being_dragged:
 			# --- SOLTAR A CARTA ---
 			print("Soltando carta: ", card_being_dragged.card_data.card_name)
@@ -27,15 +35,31 @@ func _unhandled_input(event):
 			print("Zona mais próxima encontrada: ", closest_zone != null)
 			
 			if closest_zone:
+				print("DEBUG: closest_zone.name = ", closest_zone.name)
+				print("DEBUG: closest_zone.is_in_group('graveyard') = ", closest_zone.is_in_group("graveyard"))
+				print("DEBUG: closest_zone.is_in_group('zone') = ", closest_zone.is_in_group("zone"))
+				
 				# VERIFICAR SE É CEMITÉRIO
 				if closest_zone.is_in_group("graveyard"):
 					print("Colocando carta no CEMITÉRIO")
 					card_being_dragged.top_level = false
+					
+					# Se a carta já estava no cemitério, remove do array antes de adicionar novamente
+					if original_parent.is_in_group("graveyard"):
+						print("DEBUG: Removendo carta do cemitério anterior")
+						original_parent.remove_card(card_being_dragged)
+					
+					print("DEBUG: Chamando add_card()")
 					closest_zone.add_card(card_being_dragged)
 					card_being_dragged.remove_from_group("cards")
 				else:
 					# JOGAR NA ZONA DE COMBATE (ATAQUE/DEFESA)
 					print("Colocando carta em zona de combate")
+					
+					# Se a carta estava no cemitério, remove de lá
+					if original_parent.is_in_group("graveyard"):
+						original_parent.remove_card(card_being_dragged)
+					
 					card_being_dragged.top_level = false
 					card_being_dragged.reparent(closest_zone)
 					var target_pos = closest_zone.size / 2.0 if closest_zone is Control else Vector2.ZERO
@@ -44,6 +68,11 @@ func _unhandled_input(event):
 			else:
 				# VOLTAR PARA A MÃO
 				print("Devolvendo carta para a mão")
+				
+				# Se a carta estava no cemitério, remove de lá
+				if original_parent.is_in_group("graveyard"):
+					original_parent.remove_card(card_being_dragged)
+				
 				if gm:
 					var hand_node = gm.get_node("PlayerHand")
 					card_being_dragged.top_level = false
@@ -69,6 +98,7 @@ func _unhandled_input(event):
 			
 			is_dragging = false
 			card_being_dragged = null
+			original_parent = null
 			
 			if gm: gm.update_hand_positions()
 
