@@ -16,13 +16,19 @@ func _unhandled_input(event):
 				is_dragging = true
 				card_being_dragged.z_index = 100
 				card_being_dragged.top_level = true
+				print("Iniciando arrasto de: ", card_being_dragged.card_data.card_name)
 		elif is_dragging and card_being_dragged:
 			# --- SOLTAR A CARTA ---
+			print("Soltando carta: ", card_being_dragged.card_data.card_name)
 			var closest_zone = find_closest_zone()
 			var gm = get_tree().get_first_node_in_group("game_manager")
 			
+			print("GameManager encontrado: ", gm != null)
+			print("Zona mais próxima encontrada: ", closest_zone != null)
+			
 			if closest_zone:
 				# JOGAR NA ZONA
+				print("Colocando carta em zona de combate")
 				card_being_dragged.top_level = false
 				card_being_dragged.reparent(closest_zone)
 				var target_pos = closest_zone.size / 2.0 if closest_zone is Control else Vector2.ZERO
@@ -30,6 +36,7 @@ func _unhandled_input(event):
 				card_being_dragged.remove_from_group("cards")
 			else:
 				# VOLTAR PARA A MÃO
+				print("Devolvendo carta para a mão")
 				if gm:
 					var hand_node = gm.get_node("PlayerHand")
 					card_being_dragged.top_level = false
@@ -37,6 +44,16 @@ func _unhandled_input(event):
 						card_being_dragged.reparent(hand_node)
 					if not card_being_dragged.is_in_group("cards"):
 						card_being_dragged.add_to_group("cards")
+					
+					# NOVO: Reorganiza a mão baseado na posição onde foi solta
+					print("Verificando se GameManager tem método 'reorder_hand_by_position'")
+					if gm.has_method("reorder_hand_by_position"):
+						print("Chamando reorder_hand_by_position")
+						gm.reorder_hand_by_position(card_being_dragged)
+					else:
+						print("ERRO: GameManager não tem o método 'reorder_hand_by_position'")
+				else:
+					print("ERRO: GameManager não foi encontrado!")
 
 			# FINALIZAÇÃO
 			card_being_dragged.z_index = 0

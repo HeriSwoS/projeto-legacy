@@ -19,8 +19,9 @@ script = ExtResource("1_bmxlf")
 deck_data = Array[ExtResource("2_4kpch")]([ExtResource("3_grg3l"), ExtResource("4_frkhe"), ExtResource("5_1p5hy"), ExtResource("6_h1m7h"), ExtResource("7_erwvk"), ExtResource("8_2w5on"), ExtResource("9_346fj")])
 
 [node name="PlayerHand" type="Node2D" parent="."]
+z_index = 1000
 
-[node name="Card Manager" type="Node2D" parent="." groups=["game_manager", "zone"]]
+[node name="Card Manager" type="Node2D" parent="." groups=["game_manager"]]
 script = ExtResource("10_0sclb")
 
 [node name="GridContainer" type="GridContainer" parent="."]
