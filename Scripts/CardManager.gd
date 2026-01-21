@@ -27,13 +27,20 @@ func _unhandled_input(event):
 			print("Zona mais próxima encontrada: ", closest_zone != null)
 			
 			if closest_zone:
-				# JOGAR NA ZONA
-				print("Colocando carta em zona de combate")
-				card_being_dragged.top_level = false
-				card_being_dragged.reparent(closest_zone)
-				var target_pos = closest_zone.size / 2.0 if closest_zone is Control else Vector2.ZERO
-				create_tween().tween_property(card_being_dragged, "position", target_pos, 0.2)
-				card_being_dragged.remove_from_group("cards")
+				# VERIFICAR SE É CEMITÉRIO
+				if closest_zone.is_in_group("graveyard"):
+					print("Colocando carta no CEMITÉRIO")
+					card_being_dragged.top_level = false
+					closest_zone.add_card(card_being_dragged)
+					card_being_dragged.remove_from_group("cards")
+				else:
+					# JOGAR NA ZONA DE COMBATE (ATAQUE/DEFESA)
+					print("Colocando carta em zona de combate")
+					card_being_dragged.top_level = false
+					card_being_dragged.reparent(closest_zone)
+					var target_pos = closest_zone.size / 2.0 if closest_zone is Control else Vector2.ZERO
+					create_tween().tween_property(card_being_dragged, "position", target_pos, 0.2)
+					card_being_dragged.remove_from_group("cards")
 			else:
 				# VOLTAR PARA A MÃO
 				print("Devolvendo carta para a mão")

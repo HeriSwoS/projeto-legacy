@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dl5cabys42jhj"]
+[gd_scene load_steps=16 format=3 uid="uid://dl5cabys42jhj"]
 
 [ext_resource type="Script" uid="uid://gx7mtmlrmvlb" path="res://Scripts/GameManager.gd" id="1_bmxlf"]
 [ext_resource type="Script" uid="uid://beibke0x0ddqw" path="res://Scripts/CardData.gd" id="2_4kpch"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://jjtei8yvnn74" path="res://Scenes/DropZoneAttack.tscn" id="11_4kpch"]
 [ext_resource type="PackedScene" uid="uid://dmr3l8iqhkckg" path="res://Scenes/DropZoneDefense.tscn" id="12_grg3l"]
 [ext_resource type="PackedScene" uid="uid://dnx0mpdxi2geg" path="res://Scenes/DeckArea.tscn" id="13_frkhe"]
+[ext_resource type="PackedScene" uid="uid://wk48vywbqy2a" path="res://Scenes/GraveyardZone.tscn" id="14_1p5hy"]
+[ext_resource type="Script" uid="uid://cvb1qrsenroew" path="res://Scripts/GraveyardZone.gd" id="15_h1m7h"]
 
 [node name="Raiz" type="Node2D" groups=["game_manager"]]
 script = ExtResource("1_bmxlf")
@@ -66,6 +68,13 @@ layout_mode = 2
 
 [node name="DeckArea" parent="." instance=ExtResource("13_frkhe")]
 offset_left = 984.0
-offset_top = 431.0
+offset_top = 401.0
 offset_right = 1124.0
-offset_bottom = 571.0
+offset_bottom = 541.0
+
+[node name="GraveyardZone" parent="." instance=ExtResource("14_1p5hy")]
+offset_left = 983.0
+offset_top = 241.0
+offset_right = 1123.0
+offset_bottom = 381.0
+script = ExtResource("15_h1m7h")

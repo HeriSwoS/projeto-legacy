@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://wk48vywbqy2a"]
+
+[ext_resource type="Texture2D" uid="uid://cefyqb1c0g7p" path="res://Assents/Cemiterio.png" id="1_d8uhi"]
+
+[node name="GraveyardZone" type="Control" groups=["zone"]]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(70, 70)
+texture = ExtResource("1_d8uhi")
+
+[node name="GyCardsContainer" type="Node2D" parent="."]
+position = Vector2(71, 71)
+
+[node name="CountLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 32.0
+offset_bottom = 27.0
+text = "0"
