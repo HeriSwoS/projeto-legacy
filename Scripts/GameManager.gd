@@ -11,6 +11,8 @@ var player_hand_node: Node2D
 var hand: Array = []
 
 func _ready():
+	$PlayerHand.add_to_group("player_hand")
+
 	# Adiciona este nó ao grupo "game_manager" para que CardManager possa encontrá-lo
 	add_to_group("game_manager")
 	
@@ -61,14 +63,14 @@ func update_hand_positions():
 	var hand_node = $PlayerHand
 	var cards = []
 	for child in hand_node.get_children():
-		# Só organiza cartas que NÃO estão sendo arrastadas (top_level = false)
 		if child.is_in_group("is_card") and not child.top_level:
 			cards.append(child)
 	
 	var spacing = 150.0
 	for i in range(cards.size()):
 		var target_x = (i - (cards.size() - 1) / 2.0) * spacing
-		create_tween().tween_property(cards[i], "position", Vector2(target_x, 0), 0.25).set_trans(Tween.TRANS_SINE)
+		var tween = create_tween()
+		tween.tween_property(cards[i], "position", Vector2(target_x, 0), 0.25).set_trans(Tween.TRANS_SINE)
 
 # Reorganiza o array 'hand' baseado na posição da carta arrastada
 func reorder_hand_by_position(dragged_card: Card):
