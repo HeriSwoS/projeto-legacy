@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dl5cabys42jhj"]
+[gd_scene load_steps=17 format=3 uid="uid://dl5cabys42jhj"]
 
 [ext_resource type="Script" uid="uid://gx7mtmlrmvlb" path="res://Scripts/GameManager.gd" id="1_bmxlf"]
 [ext_resource type="Script" uid="uid://beibke0x0ddqw" path="res://Scripts/CardData.gd" id="2_4kpch"]
@@ -15,18 +15,19 @@
 [ext_resource type="PackedScene" uid="uid://dnx0mpdxi2geg" path="res://Scenes/DeckArea.tscn" id="13_frkhe"]
 [ext_resource type="PackedScene" uid="uid://wk48vywbqy2a" path="res://Scenes/GraveyardZone.tscn" id="14_1p5hy"]
 [ext_resource type="Script" uid="uid://cvb1qrsenroew" path="res://Scripts/GraveyardZone.gd" id="15_h1m7h"]
+[ext_resource type="PackedScene" uid="uid://oa6ovqe5k43l" path="res://Scenes/ResourceZone.tscn" id="16_erwvk"]
 
 [node name="Raiz" type="Node2D" groups=["game_manager"]]
 script = ExtResource("1_bmxlf")
 deck_data = Array[ExtResource("2_4kpch")]([ExtResource("3_grg3l"), ExtResource("4_frkhe"), ExtResource("5_1p5hy"), ExtResource("6_h1m7h"), ExtResource("7_erwvk"), ExtResource("8_2w5on"), ExtResource("9_346fj")])
 
-[node name="PlayerHand" type="Node2D" parent="."]
+[node name="PlayerHand" type="Node2D" parent="." groups=["player_hand", "zone"]]
 z_index = 1000
 
 [node name="Card Manager" type="Node2D" parent="." groups=["game_manager"]]
 script = ExtResource("10_0sclb")
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="GridContainer" type="GridContainer" parent="." groups=["zone"]]
 offset_left = 184.0
 offset_top = 80.0
 offset_right = 972.0
@@ -67,14 +68,20 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="DeckArea" parent="." instance=ExtResource("13_frkhe")]
-offset_left = 984.0
-offset_top = 401.0
-offset_right = 1124.0
-offset_bottom = 541.0
+offset_left = 981.0
+offset_top = 398.0
+offset_right = 1121.0
+offset_bottom = 538.0
 
 [node name="GraveyardZone" parent="." instance=ExtResource("14_1p5hy")]
-offset_left = 983.0
-offset_top = 241.0
-offset_right = 1123.0
-offset_bottom = 381.0
+offset_left = 982.0
+offset_top = 240.0
+offset_right = 1122.0
+offset_bottom = 380.0
 script = ExtResource("15_h1m7h")
+
+[node name="ResourceZone" parent="." instance=ExtResource("16_erwvk")]
+offset_left = 983.0
+offset_top = 81.0
+offset_right = 1123.0
+offset_bottom = 221.0
